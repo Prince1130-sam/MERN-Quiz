@@ -7,10 +7,12 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Topics from "./pages/Topics";
 import Quiz from "./pages/Quiz";
 import Result from "./pages/Result";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <BrowserRouter>
+    <Navbar />
       <Routes>
 
         <Route path="/" element={<Login />} />
