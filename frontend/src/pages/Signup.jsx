@@ -16,12 +16,8 @@ const Signup = () => {
 
     try {
       await API.post("/api/auth/signup", form);
-
       alert("Signup Successful ✅");
-
-      // 🔥 Signup ke baad login page
       navigate("/");
-
     } catch (err) {
       alert(err.response?.data?.msg || "Signup Failed");
     }
@@ -53,13 +49,9 @@ const Signup = () => {
 
         <button style={styles.button}>Signup</button>
 
-        {/* 🔥 Login option */}
         <p style={styles.text}>
           Already have an account?{" "}
-          <span
-            style={styles.link}
-            onClick={() => navigate("/")}
-          >
+          <span style={styles.link} onClick={() => navigate("/")}>
             Login
           </span>
         </p>
@@ -73,15 +65,17 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    height: "100vh",
+    minHeight: "100vh",
+    padding: "15px", // 🔥 mobile spacing
     background: "#f5f5f5",
   },
   card: {
     background: "#fff",
-    padding: "30px",
+    padding: "20px",
     borderRadius: "10px",
     boxShadow: "0 0 10px rgba(0,0,0,0.1)",
-    width: "300px",
+    width: "100%",
+    maxWidth: "350px", // 🔥 responsive width
     display: "flex",
     flexDirection: "column",
   },
@@ -90,22 +84,25 @@ const styles = {
     marginBottom: "20px",
   },
   input: {
-    padding: "10px",
+    padding: "12px",
     marginBottom: "15px",
-    borderRadius: "5px",
+    borderRadius: "6px",
     border: "1px solid #ccc",
+    fontSize: "16px", // 🔥 mobile typing friendly
   },
   button: {
-    padding: "10px",
+    padding: "12px",
     background: "#007bff",
     color: "#fff",
     border: "none",
-    borderRadius: "5px",
+    borderRadius: "6px",
     cursor: "pointer",
+    fontSize: "16px",
   },
   text: {
     marginTop: "15px",
     textAlign: "center",
+    fontSize: "14px",
   },
   link: {
     color: "blue",
