@@ -14,18 +14,9 @@ connectDB();
 
 const app = express();
 
-const allowedOrigins = [
-  "https://mern-quiz-frontend-two.vercel.app"
-];
-
 app.use(cors({
-  origin: allowedOrigins,
-  methods: ["GET","POST","PUT","DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"],
- 
-}));
-
-
+    origin: "*",
+  }));
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
