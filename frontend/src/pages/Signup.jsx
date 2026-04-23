@@ -12,7 +12,7 @@ const Signup = () => {
     e.preventDefault();
 
     try {
-      await API.post("/auth/signup", form);
+      await API.post("/api/auth/signup", form);
       alert("Signup Successful");
     } catch (err) {
       alert(err.response.data.msg);
