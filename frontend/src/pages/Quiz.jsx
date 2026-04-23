@@ -12,7 +12,7 @@ const Quiz = () => {
 
   useEffect(() => {
     const fetchQuestions = async () => {
-      const res = await API.get(`/questions/${topicId}`);
+      const res = await API.get(`/api/questions/${topicId}`);
       setQuestions(res.data);
     };
 
