@@ -21,41 +21,46 @@ const Result = () => {
           Score: {score} / {questions.length}
         </h3>
 
-        <div style={styles.previewBox}>
-          {questions.map((q, index) => {
-            const userAns = answers[index];
-            const correct = q.correctAnswer;
+        {questions.map((q, index) => {
+          const userAns = answers[index];
+          const correct = q.correctAnswer;
 
-            return (
-              <div key={index} style={styles.questionBox}>
-                
-                {/* Question */}
-                <p style={styles.question}>
-                  <b>Q{index + 1}:</b> {q.question}
-                </p>
+          return (
+            <div key={index} style={styles.questionBox}>
+              
+              {/* Question */}
+              <p style={styles.question}>
+                <b>Q{index + 1}:</b> {q.question}
+              </p>
 
-                {/* Options */}
-                {q.options.map((opt, i) => {
-                  let color = "#000";
+              {/* Options */}
+              {q.options.map((opt, i) => {
+                let color = "#000";
 
-                  if (opt === correct) {
-                    color = "green"; // correct answer
-                  } else if (opt === userAns && userAns !== correct) {
-                    color = "red"; // wrong selected
-                  }
+                if (opt === correct) {
+                  color = "green"; // correct answer
+                }
 
-                  return (
-                    <div key={i} style={{ color, marginBottom: "5px" }}>
-                      {opt}
-                    </div>
-                  );
-                })}
+                if (opt === userAns && userAns !== correct) {
+                  color = "red"; // wrong selected
+                }
 
-                <hr style={{ margin: "15px 0" }} />
-              </div>
-            );
-          })}
-        </div>
+                return (
+                  <div key={i} style={{ color, marginBottom: "5px" }}>
+                    {opt}
+                  </div>
+                );
+              })}
+
+              {/* Correct Answer */}
+              <p style={{ color: "green", fontWeight: "bold" }}>
+                Answer: {correct}
+              </p>
+
+              <hr />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
@@ -65,37 +70,30 @@ const styles = {
   container: {
     display: "flex",
     justifyContent: "center",
-    alignItems: "center",
-    minHeight: "100vh",
     padding: "15px",
     background: "#f5f5f5",
+    minHeight: "100vh",
   },
   card: {
     background: "#fff",
-    padding: "25px",
+    padding: "20px",
     borderRadius: "10px",
-    boxShadow: "0 0 10px rgba(0,0,0,0.1)",
     width: "100%",
     maxWidth: "600px",
+    boxShadow: "0 0 10px rgba(0,0,0,0.1)",
   },
   title: {
     textAlign: "center",
-    marginBottom: "10px",
   },
   score: {
     textAlign: "center",
     color: "#007bff",
     marginBottom: "20px",
   },
-  previewBox: {
-    maxHeight: "60vh",
-    overflowY: "auto",
-  },
   questionBox: {
     marginBottom: "15px",
   },
   question: {
-    fontSize: "16px",
     marginBottom: "10px",
   },
 };
