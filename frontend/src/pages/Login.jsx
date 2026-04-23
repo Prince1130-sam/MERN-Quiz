@@ -22,27 +22,42 @@ const Login = () => {
       }
 
     } catch (err) {
-      alert(err.response.data.msg);
+      alert(err.response?.data?.msg || "Login Failed");
     }
   };
 
   return (
-    <form onSubmit={handleLogin}>
-      <h2>Login</h2>
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
+      <form onSubmit={handleLogin}>
+        <h2>Login</h2>
 
-      <input
-        placeholder="Email"
-        onChange={(e)=>setForm({...form, email:e.target.value})}
-      />
+        <input
+          placeholder="Email"
+          onChange={(e)=>setForm({...form, email:e.target.value})}
+        />
+        <br /><br />
 
-      <input
-        placeholder="Password"
-        type="password"
-        onChange={(e)=>setForm({...form, password:e.target.value})}
-      />
+        <input
+          placeholder="Password"
+          type="password"
+          onChange={(e)=>setForm({...form, password:e.target.value})}
+        />
+        <br /><br />
 
-      <button>Login</button>
-    </form>
+        <button>Login</button>
+      </form>
+
+      {/* 🔥 Signup Option */}
+      <p style={{ marginTop: "15px" }}>
+        Don’t have an account?{" "}
+        <span 
+          onClick={() => navigate("/signup")} 
+          style={{ color: "blue", cursor: "pointer" }}
+        >
+          Sign Up
+        </span>
+      </p>
+    </div>
   );
 };
 
