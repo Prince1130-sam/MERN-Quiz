@@ -12,8 +12,9 @@ import Navbar from "./components/Navbar";
 function App() {
   return (
     <BrowserRouter>
-    <Navbar />
+    
       <Routes>
+        <Navbar />
 
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
