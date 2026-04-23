@@ -15,7 +15,7 @@ connectDB();
 const app = express();
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "mern-quiz-2n1xaptxd-prince-kumar-yadavs-projects-5a225627.vercel.app",
   }));
 app.use(express.json());
 
