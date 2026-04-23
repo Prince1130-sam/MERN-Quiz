@@ -8,7 +8,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     const fetchUnits = async () => {
-      const res = await API.get("/units");
+      const res = await API.get("/api/units");
       setUnits(res.data);
     };
 

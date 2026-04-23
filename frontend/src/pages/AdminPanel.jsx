@@ -15,13 +15,13 @@ const AdminPanel = () => {
   // ✅ Add Unit
   const addUnit = async () => {
     console.log("button click")
-    await API.post("/admin/add-unit", { unitName });
+    await API.post("/api/admin/add-unit", { unitName });
     alert("Unit Added");
   };
 
   // ✅ Add Topic
   const addTopic = async () => {
-    await API.post("/admin/add-topic", {
+    await API.post("/api/admin/add-topic", {
       topicName,
       unitId,
     });
@@ -30,7 +30,7 @@ const AdminPanel = () => {
 
   // ✅ Add Question
   const addQuestion = async () => {
-    await API.post("/admin/add-question", {
+    await API.post("/api/admin/add-question", {
       question,
       options,
       correctAnswer,
