@@ -8,15 +8,21 @@ const Topics = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchTopics = async () => {
-       console.log("Unit Id" , unitId)
-      const res = await API.get(`"/api/topics/${unitId}`);
-     
-      setTopics(res.data);
-    };
+  const fetchTopics = async () => {
+    try {
+      console.log("Unit Id:", unitId);
 
-    fetchTopics();
-  }, [unitId]);
+      const res = await API.get(`/api/topics/${unitId}`);
+      console.log("API Response:", res.data);
+
+      setTopics(res.data);
+    } catch (err) {
+      console.log("Error:", err.response?.data || err.message);
+    }
+  };
+
+  fetchTopics();
+}, [unitId]);
 
   return (
     <div>
