@@ -10,6 +10,7 @@ const Topics = () => {
   useEffect(() => {
     const fetchTopics = async () => {
       const res = await API.get(`"/api/topics/${unitId}`);
+      console.log("Unit Id" , unitId)
       setTopics(res.data);
     };
 
