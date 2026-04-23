@@ -15,7 +15,7 @@ connectDB();
 const app = express();
 
 app.use(cors({
-    origin: "https://mern-quiz-frontend-two.vercel.app/",
+    origin: "https://mern-quiz-frontend-two.vercel.app",
   }));
 app.use(express.json());
 
